@@ -57,12 +57,12 @@ describe('ProductCardView', () => {
     const { container } = render(<TestHarness />)
     const card = screen.getByRole('article', { name: PLAIN_TEE_PRODUCT.title })
     const primaryAtStart = container.querySelector(
-      'img[src="/products/orange.png"]',
+      'img[src$="/products/orange.png"]',
     ) as HTMLImageElement
     expect(primaryAtStart).toBeInTheDocument()
     await user.click(within(card).getByTitle('Dark Green'))
     const main = container.querySelector(
-      'img[src="/products/green.png"]',
+      'img[src$="/products/green.png"]',
     ) as HTMLImageElement
     expect(main).toBeInTheDocument()
   })
